@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ symbol }} Price Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>{{ symbol }} – Last Price Chart</h2>
+    <canvas id="priceChart" width="800" height="400"></canvas>
+
+    <script>
+        const ctx = document.getElementById('priceChart').getContext('2d');
+
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ labels|safe }},
+                datasets: [{
+                    label: 'Last Price',
+                    data: {{ prices|safe }},
+                    borderColor: 'blue',
+                    tension: 0.3,
+                    fill: false
+                },
+                {
+                    label: 'Price Change (%)',
+                    data: {{ changes|safe }},
+                    borderColor: 'green',
+                    tension: 0.3,
+                    fill: false,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        type: 'linear',
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'Price'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Change %'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
