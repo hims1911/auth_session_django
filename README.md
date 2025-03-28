@@ -6,6 +6,9 @@ This project is a Django-based application that handles:
 - **Weather Data Retrieval from External APIs**  
 - **Binance Coin Market Chart Visualization**
 
+
+![data-flow](https://github.com/user-attachments/assets/ad5bf6c1-7297-4418-a233-028f71e5cb8d)
+
 ---
 
 ## 📦 Features
@@ -36,6 +39,5 @@ This project is a Django-based application that handles:
 ```bash
 docker-compose up --build
 
-![data-flow](https://github.com/user-attachments/assets/ad5bf6c1-7297-4418-a233-028f71e5cb8d)
 
 
